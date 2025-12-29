@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HTML5 Skeleton: Mermaid + Markdown + Canvas</title>
+
+  <!-- Externes CSS -->
+  <link rel="stylesheet" href="main.css" />
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <!-- Markdown (markdown-it) -->
+  <script src="https://cdn.jsdelivr.net/npm/markdown-it@14/dist/markdown-it.min.js"></script>
+
+  <!-- Mermaid (UMD build -> global "mermaid") -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo"></div>
+      <div>
+        <div class="title">Wizard-Skeleton</div>
+        <div class="subtitle">Mermaid · Markdown · Canvas · jQuery</div>
+      </div>
+    </div>
+
+    <nav class="tabs">
+      <button class="tabbtn is-active" data-tab="tab-md">Markdown</button>
+      <button class="tabbtn" data-tab="tab-mm">Mermaid</button>
+      <button class="tabbtn" data-tab="tab-cv">Canvas</button>
+    </nav>
+  </header>
+
+  <main class="layout">
+    <!-- Markdown Tab -->
+    <section id="tab-md" class="tab is-visible">
+      <h2>Markdown</h2>
+      <div class="two-col">
+        <div class="panel">
+          <div class="panel-head">
+            <strong>Input</strong>
+            <button id="btnRenderMarkdown" class="btn">Render</button>
+          </div>
+          <textarea id="mdInput" spellcheck="false"># Brainstorm
+- Ziel: Haushaltsbuch
+- Must-have: Konten, Buchungen, Kategorien</textarea>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head">
+            <strong>Preview</strong>
+          </div>
+          <div id="mdOutput" class="preview"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mermaid Tab -->
+    <section id="tab-mm" class="tab">
+      <h2>Mermaid</h2>
+      <div class="two-col">
+        <div class="panel">
+          <div class="panel-head">
+            <strong>Diagram Source</strong>
+            <button id="btnRenderMermaid" class="btn">Render</button>
+          </div>
+          <textarea id="mmInput" spellcheck="false">flowchart TD
+  A[Start] --> B{Buchung?}
+  B -->|Einnahme| C[+ Betrag]
+  B -->|Ausgabe| D[- Betrag]
+  C --> E[Speichern]
+  D --> E[Speichern]
+  E --> F[Dashboard aktualisieren]</textarea>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head">
+            <strong>Diagram</strong>
+          </div>
+          <div id="mmOutput" class="preview">
+            <!-- Hier wird Mermaid reingerendert -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Canvas Tab -->
+    <section id="tab-cv" class="tab">
+      <h2>Canvas</h2>
+
+      <div class="row">
+        <button id="btnClearCanvas" class="btn">Clear</button>
+        <span class="hint">Maus gedrückt halten und zeichnen.</span>
+      </div>
+
+      <div class="canvas-wrap">
+        <canvas id="sketch"></canvas>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>Files: <code>index.html</code> · <code>main.css</code> · <code>main.js</code></span>
+  </footer>
+
+  <!-- Externes JS -->
+  <script src="main.js"></script>
+</body>
+</html>
